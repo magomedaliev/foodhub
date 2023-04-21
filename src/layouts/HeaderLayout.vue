@@ -1,5 +1,5 @@
 <script>
-import LogoIcon from "../components/icons/LogoIcon.vue"
+import LogoIcon from "../components/Icons/LogoIcon.vue"
 import SearchWidget from "../components/SearchWidget.vue"
 
 export default {
