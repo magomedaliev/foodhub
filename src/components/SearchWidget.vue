@@ -1,6 +1,6 @@
 <script>
 import data from "../data.json"
-import SearchIcon from "./icons/SearchIcon.vue"
+import SearchIcon from "./Icons/SearchIcon.vue"
 
 export default {
   components: {
