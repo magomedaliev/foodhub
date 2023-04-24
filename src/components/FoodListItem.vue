@@ -25,30 +25,30 @@ export default {
       <div class="food-item-outer">
         <template v-if="!food">
           <template v-if="title === 'Салаты'">
-            <img src="../assets/salad.png" alt="image">
+            <img :src="this.$store.state.foodImages[0]" alt="image">
           </template>
           <template v-else-if="title === 'Напитки'">
-            <img src="../assets/drink.png" alt="image">
+            <img :src="this.$store.state.foodImages[1]" alt="image">
           </template>
           <template v-else-if="title === 'Десерты'">
-            <img src="../assets/dessert.png" alt="image">
+            <img :src="this.$store.state.foodImages[2]" alt="image">
           </template>
           <template v-else-if="title === 'Завтраки'">
-            <img src="../assets/breakfast.png" alt="image">
+            <img :src="this.$store.state.foodImages[3]" alt="image">
           </template>
         </template>
         <template v-else>
           <template v-if="food.type === 'salad'">
-            <img src="../assets/salad.png" alt="image">
+            <img :src="this.$store.state.foodImages[0]" alt="image">
           </template>
           <template v-else-if="food.type === 'drink'">
-            <img src="../assets/drink.png" alt="image">
+            <img :src="this.$store.state.foodImages[1]" alt="image">
           </template>
           <template v-else-if="food.type === 'dessert'">
-            <img src="../assets/dessert.png" alt="image">
+            <img :src="this.$store.state.foodImages[2]" alt="image">
           </template>
           <template v-else-if="food.type === 'breakfast'">
-            <img src="../assets/breakfast.png" alt="image">
+            <img :src="this.$store.state.foodImages[3]" alt="image">
           </template>
         </template>
       </div>

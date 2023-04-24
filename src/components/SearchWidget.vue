@@ -54,16 +54,16 @@ export default {
           <div v-for="(item, index) in searchList" class="search-item" :key="index" @click="goFood(item.id)">
             <div class="search-item-cover">
               <template v-if="item.type === 'salad'">
-                <img src="../assets/salad.png" alt="image">
+                <img :src="this.$store.state.foodImages[0]" alt="image">
               </template>
               <template v-else-if="item.type === 'drink'">
-                <img src="../assets/drink.png" alt="image">
+                <img :src="this.$store.state.foodImages[1]" alt="image">
               </template>
               <template v-else-if="item.type === 'dessert'">
-                <img src="../assets/dessert.png" alt="image">
+                <img :src="this.$store.state.foodImages[2]" alt="image">
               </template>
               <template v-else-if="item.type === 'breakfast'">
-                <img src="../assets/breakfast.png" alt="image">
+                <img :src="this.$store.state.foodImages[3]" alt="image">
               </template>
             </div>
             <div class="search-item-outer">
