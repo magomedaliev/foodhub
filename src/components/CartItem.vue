@@ -25,6 +25,18 @@ export default {
       </span>
     </button>
     <div class="cart-item-cover">
+      <template v-if="food.type === 'salad'">
+        <img src="../assets/salad.png" alt="image">
+      </template>
+      <template v-else-if="food.type === 'drink'">
+        <img src="../assets/drink.png" alt="image">
+      </template>
+      <template v-else-if="food.type === 'dessert'">
+        <img src="../assets/dessert.png" alt="image">
+      </template>
+      <template v-else-if="food.type === 'breakfast'">
+        <img src="../assets/breakfast.png" alt="image">
+      </template>
     </div>
     <div class="cart-item-outer">
       <div class="cart-item-outer-desc">
@@ -71,6 +83,12 @@ export default {
   border-radius: 20px;
   background-color: var(--layout-gray);
   box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cart-item-cover img {
+  width: 100%;
+  height: 100%;
 }
 
 .cart-item-remove {

@@ -39,6 +39,7 @@ export default {
         this.$store.state.cartItems.push({
           id: this.$route.params.id,
           name: this.food.name,
+          type: this.food.type,
           price: this.food.price,
           weight: this.food.weight,
           count: this.count
@@ -84,6 +85,18 @@ export default {
         <div class="food-cover-outer">
           <BackButton />
         </div>
+        <template v-if="food.type === 'salad'">
+          <img src="../assets/salad.png" alt="image">
+        </template>
+        <template v-else-if="food.type === 'drink'">
+          <img src="../assets/drink.png" alt="image">
+        </template>
+        <template v-else-if="food.type === 'dessert'">
+          <img src="../assets/dessert.png" alt="image">
+        </template>
+        <template v-else-if="food.type === 'breakfast'">
+          <img src="../assets/breakfast.png" alt="image">
+        </template>
       </div>
       <div class="food-desc">
         <h2>
@@ -167,26 +180,39 @@ export default {
 }
 
 .food-cover {
+  position: relative;
   width: 100%;
   height: 200px;
-  padding: 12px;
   margin-bottom: 20px;
   border-radius: 15px;
   background-color: var(--layout-gray);
+  overflow: hidden;
 }
 
-.food-cover-outer {
-  position: relative;
+.food-cover img {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 
+.food-cover-outer {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  margin: 12px;
+}
+
+.food-cover-outer button {
+  z-index: 100;
+}
+
 .food-desc {
   margin-bottom: 30px;
 }
-
 
 .food-desc h2,
 .food-price {

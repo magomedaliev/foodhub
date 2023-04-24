@@ -43,7 +43,7 @@ export default {
         <SearchIcon />
         <input 
           class="search-field" 
-          type="search" 
+          type="text" 
           placeholder="Что вы хотите заказать?"
           v-model="searchValue" 
           @focus="searchFocus" 
@@ -53,6 +53,18 @@ export default {
         <div class="search-list-outer">
           <div v-for="(item, index) in searchList" class="search-item" :key="index" @click="goFood(item.id)">
             <div class="search-item-cover">
+              <template v-if="item.type === 'salad'">
+                <img src="../assets/salad.png" alt="image">
+              </template>
+              <template v-else-if="item.type === 'drink'">
+                <img src="../assets/drink.png" alt="image">
+              </template>
+              <template v-else-if="item.type === 'dessert'">
+                <img src="../assets/dessert.png" alt="image">
+              </template>
+              <template v-else-if="item.type === 'breakfast'">
+                <img src="../assets/breakfast.png" alt="image">
+              </template>
             </div>
             <div class="search-item-outer">
               <div class="search-item-outer-desc">
@@ -81,6 +93,15 @@ export default {
 <style>
 .search-wrapp {
   position: relative;
+}
+
+.search-item-cover {
+  overflow: hidden;
+}
+
+.search-item-cover img {
+  width: 100%;
+  height: 100%;
 }
 
 .search-outer {

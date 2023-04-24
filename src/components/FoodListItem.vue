@@ -22,7 +22,36 @@ export default {
 <template>
   <div class="food-item" @click="goHome(counter)">
     <div class="food-item-wrapp">
-      <div class="food-item-outer"></div>
+      <div class="food-item-outer">
+        <template v-if="!food">
+          <template v-if="title === 'Салаты'">
+            <img src="../assets/salad.png" alt="image">
+          </template>
+          <template v-else-if="title === 'Напитки'">
+            <img src="../assets/drink.png" alt="image">
+          </template>
+          <template v-else-if="title === 'Десерты'">
+            <img src="../assets/dessert.png" alt="image">
+          </template>
+          <template v-else-if="title === 'Завтраки'">
+            <img src="../assets/breakfast.png" alt="image">
+          </template>
+        </template>
+        <template v-else>
+          <template v-if="food.type === 'salad'">
+            <img src="../assets/salad.png" alt="image">
+          </template>
+          <template v-else-if="food.type === 'drink'">
+            <img src="../assets/drink.png" alt="image">
+          </template>
+          <template v-else-if="food.type === 'dessert'">
+            <img src="../assets/dessert.png" alt="image">
+          </template>
+          <template v-else-if="food.type === 'breakfast'">
+            <img src="../assets/breakfast.png" alt="image">
+          </template>
+        </template>
+      </div>
     </div>
     <div class="food-item-desc">
       <template v-if="title">
@@ -76,6 +105,11 @@ export default {
   border-radius: 20px;
   background-color: var(--layout-gray);
   box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.food-item-outer img {
+  width: 100%;
 }
 
 .food-item-title,
